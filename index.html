@@ -2,9 +2,7 @@
 <html lang="de">
 <head>
     <!-- Für die Browser-Tabs (Favicon) -->
-<link rel="icon" type="image/png" href="Icon.png" sizes="512x512">
-
-<!-- Für Apple Desktop-Geräte (Safari) -->
+<link rel="icon" href="Icon.png" type="image/png">
 <link rel="apple-touch-icon" href="Icon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16824,7 +16822,9 @@
         document.getElementById('list-total').innerText = count;
         document.getElementById('list-learned').innerText = learned;
     }
-
+    if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js');
+  }
     // --- LERNLOGIK ---
     function startLearning(blockIdx = -1, customWords = null) {
         let words = customWords;
